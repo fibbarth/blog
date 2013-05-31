@@ -1,11 +1,12 @@
 <?php 
 /**
- * @author Felipe Barth http://felipebarth.com.br/blog
- * @date 2013-05-31
+ * @author Felipe Barth http://felipebarth.com.br/blog - 31/05/2013
+ * 
  * 
  * Exemplo de como realizar operações de adição 
  * subtração e diferenças de datas usando a Classe nativa do PHP DateTime
  * e a classe DateInterval.
+ * Dúvidas: fibbarth@gmail.com
  * 
  * Referências
  * http://www.php.net/manual/en/class.datetime.php
@@ -34,8 +35,28 @@
 	//Substraindo dois dias do objeto hoje
 	$hoje->sub($intervalo);
 	echo $hoje->format('d/m/Y');
+
+	// Apenas para dar uma quebra na exibição
+	echo '<br />';
+	$hoje->add($intervalo);
+	echo $hoje->format('d/m/Y');
 	
+	/*
+	 *  Cria uma objeto DateTime, estou usando como exemplo minha data de
+	 *  nascimento
+	 */ 
+	$dataNascimento = new DateTime('1984-06-02');
+
+	// Data futura
+	$futuro 	    = new DateTime('2034-01-01');
 	
-	
-	
+	// A diferença entre as datas 
+	$anos = $dataNascimento->diff( $futuro );
+	echo '<br />';
+
+	// Imprime na tela a diferença entre as datas
+	echo <<<STRING
+	Em {$futuro->format('d/m/Y')}
+	eu terei {$anos->y} anos, {$anos->m} meses, {$anos->d} dias
+STRING;
 ?>
