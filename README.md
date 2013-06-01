@@ -3,5 +3,7 @@ BLOG
 
 Examples used on blog http://felipebarth.com.br/blog
 
-Operações com datas usado Classe DateTime do PHP 
-==
+DateTime e DateInterval
+====
+
+Exemplo de uso da classe nativa do PHP DateTime e dateInterval
