@@ -1,5 +1,6 @@
 <?php 
 	/**
+	 * @author Felipe Barth http://felipebarth.com.br/blog - 02/06/201 
 	 * Exemplo de como gerar um PDF com PHP usando 
 	 * a classe DOMPDF.
 	 * 
