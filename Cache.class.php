@@ -40,7 +40,7 @@ class Cache{
 	 * @param int $timelife Valor em segundos
 	 */
 	public function __construct( $nameCache, $timelife = '600' ){
-		//Conexao com o banco
+	
 		$dsn = 'mysql:dbname=def;charset=utf8;host='.MYSQL_HOST;
 		$this->pdo = new PDO( $dsn, MYSQL_USER, MYSQL_PASS );
 		$this->timelife = $timelife;
