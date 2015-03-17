@@ -1,7 +1,7 @@
 <?php 
 /**
  * @author Felipe Barth http://felipebarth.com.br/blog - 31/05/2013
- * 
+ * Teste 
  * 
  * Exemplo de como realizar operações de adição 
  * subtração e diferenças de datas usando a Classe nativa do PHP DateTime
