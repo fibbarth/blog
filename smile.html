@@ -1,3 +1,63 @@
+<!DOCTYPE html>
+
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="noUiSlider has a selection of examples you can use to implement a slider easily. Take a look!">
+
+	<title>noUiSlider - Examples and hints | Refreshless.com</title>
+
+	<script src="http://refreshless.com/nouislider/documentation/assets/wNumb.js"></script>
+
+	<link href="http://refreshless.com/nouislider/distribute/nouislider.min.css" rel="stylesheet">
+	<script src="http://refreshless.com/nouislider/distribute/nouislider.js"></script>
+
+</head>
+
+<body class="language-javascript">
+
+<section>
+
+		<div id="colorpicker">
+			<div class="sliders" id="red"></div>
+			<div id="smile">
+			  <div class="eye left"></div>
+			  <div class="eye right"></div>
+			  <div id="mouth" class="mouth-5"></div>
+			</div>	
+		</div>	
+		
+<script>
+function smile(){
+	console.log(sliders[0].noUiSlider.get() );
+	document.getElementById("mouth").className = 'mouth-' + sliders[0].noUiSlider.get();
+}
+</script>			
+<script>
+var resultElement = document.getElementById('result'),
+	sliders = document.getElementsByClassName('sliders');
+
+for ( var i = 0; i < sliders.length; i++ ) {
+
+	noUiSlider.create(sliders[i], {
+		start: 5,
+		connect: "lower",
+		orientation: "vertical",
+		range: {
+			'min': 0,
+			'max': 10
+		},
+		format: wNumb({
+			decimals: 0
+		})
+	});
+
+	// Bind the color changing function
+	// to the slide event.
+	sliders[i].noUiSlider.on('slide', smile);
+}
+</script>		
+</div>
 <style>
 body { 
 background: #eeeeee;
@@ -26,7 +86,7 @@ background: radial-gradient(ellipse at center, #ffffff 0%,#dddddd 100%);
   margin-left: 33px;
 }
 .eye.right { margin-left: 0; margin-right: 33px; }
-.mouth {
+.mouth-10{
   position: absolute;
   z-index: 1;
   top: 10px;
@@ -38,9 +98,149 @@ background: radial-gradient(ellipse at center, #ffffff 0%,#dddddd 100%);
   border-bottom: 8px solid #222;
   border-radius: 100%;
 }
+.mouth-9{
+   border-bottom: 8px solid #222;
+    border-radius: 40%;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 7px;
+    width: 101px;
+    z-index: 1;
+}
+.mouth-8{
+  border-bottom: 8px solid #222;
+    border-radius: 30%;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 87px;
+    z-index: 1;
+}
+.mouth-7{
+   border-bottom: 8px solid #222;
+    border-radius: 20%;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 74px;
+    z-index: 1;
+}
+
+.mouth-6{
+	border-bottom: 8px solid #222;
+    border-radius: 15%;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 74px;
+    z-index: 1;
+}
+.mouth-5{
+	border-bottom: 8px solid #222;
+    border-radius: 0;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: -7px;
+    width: 69px;
+    z-index: 1;
+}
+.mouth-4{
+	   border-radius: 11px;
+    border-top: 8px solid #222;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 99px;
+    width: 69px;
+    z-index: 1;
+}
+.mouth-3{
+	  border-radius: 20px;
+    border-top: 8px solid #222;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 102px;
+    width: 76px;
+    z-index: 1;
+}
+.mouth-2{
+	 border-radius: 35px;
+    border-top: 8px solid #222;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 93px;
+    width: 96px;
+    z-index: 1;
+}
+.mouth-1{
+	border-radius: 53px;
+    border-top: 8px solid #222;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 87px;
+    width: 104px;
+    z-index: 1;
+}
+.mouth-0{
+	border-radius: 53px;
+    border-top: 8px solid #222;
+    height: 110px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 82px;
+    width: 115px;
+    z-index: 1;
+}
+#red{
+	margin: 10px;
+	display: inline-block;
+	height: 200px;
+}
+
+#colorpicker {
+	height: 240px;
+	width: 310px;
+	margin: 0 auto;
+	padding: 10px;
+	border: 1px solid #BFBFBF;
+}
+
+
+
+#red {
+	background: #c0392b;
+}
+
 </style>
-<div id="smile">
-  <div class="eye left"></div>
-  <div class="eye right"></div>
-  <div class="mouth"></div>
-</div>
+</section>
+
+
+</body>
