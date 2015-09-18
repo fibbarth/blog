@@ -29,33 +29,32 @@
 		
 <script>
 function smile(){
-	console.log(sliders[0].noUiSlider.get() );
-	document.getElementById("mouth").className = 'mouth-' + sliders[0].noUiSlider.get();
+	console.log(slider.noUiSlider.get() );
+	document.getElementById("mouth").className = 'mouth-' + slider.noUiSlider.get();
 }
 </script>			
 <script>
-var resultElement = document.getElementById('result'),
-	sliders = document.getElementsByClassName('sliders');
 
-for ( var i = 0; i < sliders.length; i++ ) {
+var	slider = document.getElementById('red');
 
-	noUiSlider.create(sliders[i], {
+	noUiSlider.create(slider, {
 		start: 5,
-		connect: "lower",
+		connect: "upper",
 		orientation: "vertical",
 		range: {
-			'min': 0,
-			'max': 10
+			'max': 10,
+			'min': 0
+			
 		},
+		direction: 'rtl',
 		format: wNumb({
 			decimals: 0
 		})
 	});
-
 	// Bind the color changing function
 	// to the slide event.
-	sliders[i].noUiSlider.on('slide', smile);
-}
+	slider.noUiSlider.on('slide', smile);
+
 </script>		
 </div>
 <style>
@@ -66,15 +65,17 @@ background: radial-gradient(ellipse at center, #ffffff 0%,#dddddd 100%);
 .left { float: left;}
 .right { float: right;}
 #smile {
-  position: relative;
-  z-index: 0;
-  background-color: yellow;
-  border: 6px solid #222;
-  width: 150px;
-  height: 150px;
-  border-radius: 100px;
-  margin: 50px auto;
-  box-shadow: 2px 2px 1px #B8B8B8;
+	background-color: yellow;
+    border: 2px solid #222;
+    border-radius: 100px;
+    box-shadow: 2px 2px 1px #b8b8b8;
+    height: 150px;
+    left: 76px;
+    margin: 50px auto;
+    position: absolute;
+    top: 0;
+    width: 150px;
+    z-index: 0;
 }
 .eye {
   position: relative;
@@ -134,7 +135,6 @@ background: radial-gradient(ellipse at center, #ffffff 0%,#dddddd 100%);
     width: 74px;
     z-index: 1;
 }
-
 .mouth-6{
 	border-bottom: 8px solid #222;
     border-radius: 15%;
@@ -203,7 +203,7 @@ background: radial-gradient(ellipse at center, #ffffff 0%,#dddddd 100%);
     margin: 0 auto;
     position: absolute;
     right: 0;
-    top: 87px;
+    top: 78px;
     width: 104px;
     z-index: 1;
 }
@@ -215,7 +215,7 @@ background: radial-gradient(ellipse at center, #ffffff 0%,#dddddd 100%);
     margin: 0 auto;
     position: absolute;
     right: 0;
-    top: 82px;
+    top: 78px;
     width: 115px;
     z-index: 1;
 }
@@ -224,21 +224,17 @@ background: radial-gradient(ellipse at center, #ffffff 0%,#dddddd 100%);
 	display: inline-block;
 	height: 200px;
 }
-
 #colorpicker {
 	height: 240px;
 	width: 310px;
 	margin: 0 auto;
 	padding: 10px;
 	border: 1px solid #BFBFBF;
+	position: relative;
 }
-
-
-
 #red {
 	background: #c0392b;
 }
-
 </style>
 </section>
 
