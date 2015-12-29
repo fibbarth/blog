@@ -1,0 +1,76 @@
+############################################## DUMP de Base ##############################################
+mysqldump -p -u username database_name > dbname.sql
+
+############################################## Inserir DUMP de Base ##############################################
+mysql -p -u username database_name < file.sql 
+
+############################################## Diff com Shell ##############################################
+svn diff | <file> vim -R -
+
+############################################## Replace com shell ##############################################
+grep -rl 'windows' ./ | xargs sed -i 's/windows/linux/g'
+
+############################################## Compactar ##############################################
+tar -cf diretorio
+gzip diretorio.ta
+
+############################################## Descompactar ##############################################
+tar -zxvf arquivo.tar.gz
+
+############################################## Transferencia entre servidores ##############################################
+scp mercado-corporativo.tar fbarth@desenvweb:/home/fbarth
+
+############################################## Encontrar arquivos ##############################################
+find . -name '*.pyc' //-delete
+
+############################################## FIND HACK ##############################################
+
+grep -lr "\$GLOBALS\[['a-zA-Z0-9]*\]\[[0-9]*\]" --include \*.php ./
+grep -lr '(\\x[0-9a-f])*' --include \*.php ./
+find . -name '*.php' | xargs wc -l > lista.txt
+cat lista.txt | grep " 1 "
+grep -lir '.*GLOBALS.*\\x[0-9a-fA-F]*' --include \*.php ./ | more
+grep -ir "<script>var a='';" --include \*.php --exclude-dir ./files_infected ./
+grep -ir 'eval(' --include \*.php ./ | more
+grep -ir "='[#@^]\+" --include \*.php --exclude gnulicense.php .
+
+
+############################################## CURL ##############################################
+
+curl -c -v -L --cookie "e350158959a5f81d5f5852a8131e4b6a=3a5h84ut1cg9101hu9k8i1cg3a9evthgu2dm25km68639ig08qk1; __utma=125665358.1035731444.1441831163.1441831163.1441831163.1; __utmb=125665358.1.10.1441831163; __utmc=125665358; __utmz=125665358.1441831163.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; _ga=GA1.2.1035731444.1441831163; _gat=1; _gali=btnLogin; e98bf0d023388caf94c83d1216ad03b1=57+E+5+E1F105B+C5B1B1715571659595E56445A15+F+05814+455+2164C5141+D47+D+C5E411155124A15+940+015+340+95E5B44+7+F52+252+E52551A+21E; c4a7bf1a9db00e85e707136dae708c68=l1tY08YGriLAwjQM.XonWHSUbSIZMAgNWQDNd; SignOnDefault=ANISOTTON; SignOnUni=09_Sep_2015_20:58:31_GMT" gedhom.unisinos.br/loginldap/autaldap.aspx/ > index.html
+
+curl -C --data 'UserName=gedimportador&Password=docuw%40r3&Organization=Unisinos&LicenseType=PlatformService&RememberMe=false&RedirectToMyselfInCaseOfError=True' 'http://gedhom.unisinos.br/DocuWare/Platform/Account/Logon?returnUrl=%2FDocuWare%2FPlatform%2FFileCabinets%2Fb_979a0473-2b02-4967-9ff5-9f3d09608481%2FDocuments%2F' -L
+
+curl --user gedimportador:docuw@r3 -H "Content-Type: application/pdf" --data-binary @/home/fbarth/Demonstrativo_Johnny.pdf http://gedhom.unisinos.b/DocuWare/Platform/FileCabinets/b_979a0473-2b02-4967-9ff5-9f3d09608481/Documents
+
+curl 'http://gedhom.unisinos.br/DocuWare/Platform/FileCabinets/b_979a0473-2b02-4967-9ff5-9f3d09608481/Documents?checkFileNameForCheckinInfo=true' -X POST -b teste.txt -c novocookie.txt -F /home/fbarth/
+
+curl 'http://gedhom.unisinos.br/DocuWare/Platform/FileCabinets/b_979a0473-2b02-4967-9ff5-9f3d09608481/Documents/475529340' -X DELETE 
+
+##############################################  Todos os processos ##############################################
+ps xfa
+
+############################################## Variaveis de ambiente ##############################################
+set | grep proxy - 
+
+##############################################  Ver distribuição linux ##############################################
+cat /etc/issue
+
+##############################################  Mais infos do sistema ##############################################
+uname -a
+
+############################################## Permissões ##############################################
+
+0 : --- (nenhuma permissão)
+1 : --x (somente execução)
+2 : -w- (somente escrita)
+3 : -wx (escrita e execução)
+4 : r-- (somente leitura)
+5 : r-x (leitura e execução)
+6 : rw- (leitura e escrita)
+7 : rwx (leitura, escrita e execução) 
+
+
+############################### Problemas com server (Acesso a aplicação python) ###############################
+sudo iptables --list
+sudo iptables -F
